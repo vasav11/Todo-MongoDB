@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="box">
+      <h1>Todo List</h1>
+    </div>
+    <div class="box2">
+      <!--<% for(var i=0; i< dayej.length; i++ ) { %>-->
+      <% dayej.forEach(function(items){ %>
+      <form action="/delete" method="POST">
+        <div class="item">
+          <input
+            type="checkbox"
+            value="<%= items._id %>"
+            name="checkbox1"
+            onchange="this.form.submit()"
+          />
+          <!-- <p><%= dayej[i].name%></p>-->
+          <p><%=items.name%></p>
+        </div>
+      </form>
+
+      <% }) %>
+
+      <form class="item" action="/" method="POST">
+        <input type="text" name="ele1" placeholder="Enter the task" />
+        <button type="submit">+</button>
+      </form>
+    </div>
+  </body>
+</html>
